@@ -1,0 +1,32 @@
+Id: f28e05f0-d1d5-46f7-8fc3-8d00f4f2c190
+UzcardCardNumber: 8600123412341234
+Balance: 1018.30
+Owner: Abdulatif
+Phone: +(998)901234567
+Password: Mirzayev
+AccountStatus: Active
+
+Id: 14a164e6-977f-4412-9575-cfcaf4f26fb4
+HumoCardNumber: 9860123412341234
+Balance: 929.45
+Owner: Muhammad
+Phone: +(998)331112233
+Password: Muhammad
+AccountStatus: Active
+
+Id: c23481bc-469b-487e-a702-4319c0913ab6
+UzcardCardNumber: 8600777777777777
+Balance: 500
+Owner: Plalonchi
+Phone: +(998)9912345678
+Password: 12345678
+AccountStatus: Active
+
+Id: 369e3cdc-dbe1-40fd-9ee3-bc22d79d3d8c
+UzcardCardNumber: 86001111111111111111
+Balance: 49.75
+Owner: Xurshid
+Phone: +(998)908007060
+Password: Xurshid
+AccountStatus: Active
+

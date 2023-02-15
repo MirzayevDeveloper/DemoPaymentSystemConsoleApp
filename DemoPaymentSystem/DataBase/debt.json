@@ -1,0 +1,12 @@
+[
+  {
+    "UserId": "14a164e6-977f-4412-9575-cfcaf4f26fb4",
+    "UserName": "Muhammad",
+    "debtAmount": 600.0
+  },
+  {
+    "UserId": "f28e05f0-d1d5-46f7-8fc3-8d00f4f2c190",
+    "UserName": "Abdulatif",
+    "debtAmount": 1100.0
+  }
+]
