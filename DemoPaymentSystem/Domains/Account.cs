@@ -18,6 +18,7 @@ namespace DemoPaymentSystem.Domains
 
             return JsonConvert.DeserializeObject<List<DebtModel>>(json);
         };
+
         public static decimal GetDebt(Guid guid)
         {
             var debts = getListOfDebts();
@@ -25,6 +26,7 @@ namespace DemoPaymentSystem.Domains
             if (user != null) return user.debtAmount;
             return 0;
         }
+
         public static bool GetDebtFromSystem(User? user, decimal amount)
         {
             if (amount < 0) return false;
