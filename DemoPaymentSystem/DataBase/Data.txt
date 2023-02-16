@@ -1,6 +1,6 @@
 Id: f28e05f0-d1d5-46f7-8fc3-8d00f4f2c190
 UzcardCardNumber: 8600123412341234
-Balance: 1018.30
+Balance: 1015.80
 Owner: Abdulatif
 Phone: +(998)901234567
 Password: Mirzayev
@@ -8,7 +8,7 @@ AccountStatus: Active
 
 Id: 14a164e6-977f-4412-9575-cfcaf4f26fb4
 HumoCardNumber: 9860123412341234
-Balance: 929.45
+Balance: 1329.45
 Owner: Muhammad
 Phone: +(998)331112233
 Password: Muhammad
@@ -16,7 +16,7 @@ AccountStatus: Active
 
 Id: c23481bc-469b-487e-a702-4319c0913ab6
 UzcardCardNumber: 8600777777777777
-Balance: 500
+Balance: 600
 Owner: Plalonchi
 Phone: +(998)9912345678
 Password: 12345678

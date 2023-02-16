@@ -114,9 +114,13 @@ namespace DemoPaymentSystem
                 Password = password,
                 AccountStatus = UserStatus.Active
             };
-            Account.AddUser(newUser);
+
+            Thread thread = new Thread(() => Account.AddUser(newUser));
+            thread.Start();
+            Console.Beep();
+
             return phone;
-        }000
+        }
         static void SecondMenu(string login)
         {
             bool isTrue = true;
@@ -169,7 +173,7 @@ namespace DemoPaymentSystem
         static void GetMonitoring(string? login)
         {
             var list = Account.GetMonitoring(login);
-
+            Console.WriteLine();
             foreach (var item in list)
             {
                 Console.WriteLine(item);
@@ -202,13 +206,8 @@ namespace DemoPaymentSystem
                 return false;
             }
 
-            Account.Transaction(user, receiverCard, _amount);
-
-            for (int i = 0; i < 3; i++)
-            {
-                Thread.Sleep(1000);
-                Console.Beep();
-            }
+            Thread thread = new Thread(() => Account.Transaction(user, receiverCard, _amount));
+            thread.Start();
 
             return true;
         }
@@ -241,7 +240,13 @@ namespace DemoPaymentSystem
         }
         static void ConsoleReadKey()
         {
-            Console.WriteLine("Press any key to continue...");
+            Console.Write("Press any key to continue");
+            for (int i = 0; i < 3; i++)
+            {
+                Thread.Sleep(500);
+                Console.Write('.');
+                Console.Beep();
+            }
             Console.ReadKey();
         }
     }

@@ -43,16 +43,18 @@ namespace DemoPaymentSystem.Domains
             }
             else
             {
-                debts.Add(new DebtModel
+                Thread thread = new Thread(() => debts.Add(new DebtModel
                 {
                     UserId = user.Id,
                     UserName = user.Owner,
                     debtAmount = amount,
-                });
+                }));
+                thread.Start();
             }
             user.Balance += amount;
             ChangeUserInfo(user);
-            SaveAction.Invoke(debts);
+            Thread thread1 = new Thread(() => SaveAction.Invoke(debts));
+            thread1.Start();
             return true;
         }
 
@@ -61,7 +63,8 @@ namespace DemoPaymentSystem.Domains
             string path2 = directoryInfo?.FullName + "\\DataBase\\debt.json";
 
             var json = JsonConvert.SerializeObject(debt, Formatting.Indented);
-            File.WriteAllText(path2, json);
+            Thread thread = new Thread(() => File.WriteAllText(path2, json));
+            thread.Start();
         };
 
         public static bool PayDebt(User? user)
@@ -86,7 +89,8 @@ namespace DemoPaymentSystem.Domains
                     debts.Add(model);
                 }
                 SaveAction.Invoke(debts);
-                ChangeUserInfo(user);
+                Thread thread = new Thread(() => ChangeUserInfo(user));
+                thread.Start();
                 return true;
             }
             return false;
@@ -97,7 +101,7 @@ namespace DemoPaymentSystem.Domains
             var debt = getListOfDebts();
             var user = debt.FirstOrDefault(x => x.UserId == userId);
             if (user != null) { debt.Remove(user); }
-            
+            SaveAction.Invoke(debt);
         }
 
         public static List<string> GetMonitoring(string? login)
@@ -141,7 +145,15 @@ namespace DemoPaymentSystem.Domains
             if (_sender.Balance - amount < price) amount -= price;
             else _sender.Balance -= price;
 
-            ActionMonitoring(new HistoryModel() { Sender = _sender, Receiver = _reveiver, Amount = amount, ServicePrice = price });
+            Thread thread = new Thread(() => ActionMonitoring(new HistoryModel() 
+            { 
+                Sender = _sender,
+                Receiver = _reveiver,
+                Amount = amount,
+                ServicePrice = price
+            }));
+
+            thread.Start();
 
             _sender.Balance -= amount;
             _reveiver.Balance += amount;
